@@ -60,7 +60,7 @@ namespace AddressBook
 
                     case 4: Console.WriteLine("Enter the name of the contact to be deleted");
                             string delname = Console.ReadLine();
-                        addressBk.delContact(delname);     
+                            addressBk.delContact(delname);     
                                 break;
 
 

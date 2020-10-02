@@ -102,15 +102,17 @@ namespace AddressBook
         public void delContact(string delName)
         {
             bool flag = false;
+            List<Contact> Li = new List<Contact>();
             foreach (Contact obj in li)
             {
                 if (obj.getFname().Equals(delName))
                 {
                     flag = true;
-                    li.Remove(obj);
-                   
+                    Li.Add(obj);
+                    
                 }
             }
+            li.RemoveAll(i=>Li.Contains(i));
             if (flag)
             {
                 Console.WriteLine("Contacts deleted");
