@@ -16,13 +16,14 @@ namespace AddressBook
         public List<Contact> getContact()
         {
             return li;
+
         }
 
         public void editContact(string name)
         {
             foreach (Contact obj in li)
             {
-                if (obj.getFname() == name && flag == 0)
+                if (obj.getFname().Equals(name) && flag == 0)
                 {
                     flag = 1;
                     Console.WriteLine("Enter the choice to change");
@@ -92,11 +93,19 @@ namespace AddressBook
 
                     }
 
-                    
-                    
 
+                }
+            }
 
+        }
+        public void delContact(string name)
+        {
 
+            foreach (Contact obj in li)
+            {
+                if (obj.getFname().Equals(name))
+                {
+                    li.Remove(obj);
                 }
             }
 

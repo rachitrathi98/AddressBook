@@ -97,7 +97,7 @@ namespace AddressBook
 
         public string toString()
         {
-            return fname+lname;   
+            return this.fname+" "+this.lname+" "+this.state;   
         }
 
     }

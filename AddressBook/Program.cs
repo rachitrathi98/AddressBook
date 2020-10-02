@@ -13,8 +13,10 @@ namespace AddressBook
             {
                 Console.WriteLine("Enter your choice");
                 Console.WriteLine("1. Enter the contact");
-                Console.WriteLine("2. Edit the contact");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("2. Display contacts");
+                Console.WriteLine("3. Edit the contact");
+                Console.WriteLine("4. Delete a contact");
+                Console.WriteLine("5. Exit");
                 choice = Convert.ToInt32(Console.ReadLine());
             
                 switch (choice)
@@ -44,7 +46,14 @@ namespace AddressBook
                     addressBk.add(contact);
                         break;
 
-                    case 2: Console.WriteLine("Enter the name of the contact to edit");
+                    case 2: List<Contact> contactList = addressBk.getContact();
+                            foreach (Contact o in contactList) {
+
+                            Console.WriteLine(o.toString());
+                               }
+                            break;
+             
+                    case 3: Console.WriteLine("Enter the name of the contact to edit");
                             string name = Console.ReadLine();
                             addressBk.editContact(name);
                         List<Contact> li = addressBk.getContact();
@@ -55,7 +64,15 @@ namespace AddressBook
                         }
                             break;
 
-                    case 3: Console.WriteLine("Exiting....");
+                    case 4: Console.WriteLine("Enter the name of the contact to be deleted");
+                            string delname = Console.ReadLine();
+                             addressBk.delContact(delname);
+                             List<Contact> list = addressBk.getContact();
+                            break;
+
+
+
+                    case 5: Console.WriteLine("Exiting....");
                         break;
 
                     default: Console.WriteLine("Please enter a valid choice");
