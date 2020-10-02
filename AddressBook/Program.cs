@@ -7,34 +7,63 @@ namespace AddressBook
     {
         static void Main(string[] args)
         {
-                AddressBk addressBk = new AddressBk();
-                string fname, lname, address, city, state, email;
-                long phoneNumber, zip;
-                Console.WriteLine("Enter the contact details");
-                Console.WriteLine("Enter the first name");
-                fname = Console.ReadLine();
-                Console.WriteLine("Enter the last name");
-                lname = Console.ReadLine();
-                Console.WriteLine("Enter the address");
-                address = Console.ReadLine();
-                Console.WriteLine("Enter the city");
-                city = Console.ReadLine();
-                Console.WriteLine("Enter the state");
-                state = Console.ReadLine();
-                Console.WriteLine("Enter the zip code");
-                zip = Convert.ToInt64(Console.ReadLine());
-                Console.WriteLine("Enter the phone number");
-                phoneNumber = Convert.ToInt64(Console.ReadLine());
-                Console.WriteLine("Enter the EmailId");
-                email = Console.ReadLine();
-                Contact contact = new Contact(fname, lname, address, city, state, zip, phoneNumber, email);
-                addressBk.add(contact);
+            int choice = 0;
+            AddressBk addressBk = new AddressBk();
+            while (choice != 3)
+            {
+                Console.WriteLine("Enter your choice");
+                Console.WriteLine("1. Enter the contact");
+                Console.WriteLine("2. Edit the contact");
+                Console.WriteLine("3. Exit");
+                choice = Convert.ToInt32(Console.ReadLine());
             
+                switch (choice)
+                {
 
+                    case 1:
+                    string fname, lname, address, city, state, email;
+                    long phoneNumber, zip;
+                    Console.WriteLine("Enter the contact details");
+                    Console.WriteLine("Enter the first name");
+                    fname = Console.ReadLine();
+                    Console.WriteLine("Enter the last name");
+                    lname = Console.ReadLine();
+                    Console.WriteLine("Enter the address");
+                    address = Console.ReadLine();
+                    Console.WriteLine("Enter the city");
+                    city = Console.ReadLine();
+                    Console.WriteLine("Enter the state");
+                    state = Console.ReadLine();
+                    Console.WriteLine("Enter the zip code");
+                    zip = Convert.ToInt64(Console.ReadLine());
+                    Console.WriteLine("Enter the phone number");
+                    phoneNumber = Convert.ToInt64(Console.ReadLine());
+                    Console.WriteLine("Enter the EmailId");
+                    email = Console.ReadLine();
+                    Contact contact = new Contact(fname, lname, address, city, state, zip, phoneNumber, email);
+                    addressBk.add(contact);
+                        break;
 
+                    case 2: Console.WriteLine("Enter the name of the contact to edit");
+                            string name = Console.ReadLine();
+                            addressBk.editContact(name);
+                        List<Contact> li = addressBk.getContact();
+                            foreach(Contact i in li)
+                        {
+                            Console.WriteLine(i.toString());
+                            Console.WriteLine("\n");
+                        }
+                            break;
 
+                    case 3: Console.WriteLine("Exiting....");
+                        break;
 
-
-        }
-    }
+                    default: Console.WriteLine("Please enter a valid choice");
+                        break;
+                 }
+            }
+         }
+     }
 }
+    
+

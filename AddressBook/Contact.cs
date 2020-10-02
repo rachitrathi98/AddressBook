@@ -29,24 +29,75 @@ namespace AddressBook
             this.emailId = emailId;
         }
 
+        public void setFname(string fname)
+        {
+            this.fname = fname;
+        }
         public string getFname()
         {
             return fname;
         }
-
-        public void editContact(string name)
+        public void setLname(string lname)
         {
-            
+            this.lname = lname;
+        }
+        public string getLname()
+        {
+            return lname;
+        }
+        public void setAdd(string address)
+        {
+            this.address =address;
+        }
+        public string getAdd()
+        {
+            return address;
+        }
+        public void setCity(string city)
+        {
+            this.city = city;
+        }
+        public string getCity()
+        {
+            return city;
+        }
+        public void setState(string state)
+        {
+            this.state = state;
+        }
+        public string getState()
+        {
+            return state;
+        }
+        public void setZip(long zip)
+        {
+            this.zip = zip;
+        }
+        public long getZip()
+        {
+            return zip;
+        }
+        public void setPhoneNo(long phoneNo)
+        {
+            this.phoneNo = phoneNo;
+        }
+        public long getPhoneNo()
+        {
+            return phoneNo;
+        }
+        public void setEmailId(string emailId)
+        {
+            this.emailId = emailId;
+        }
+        public string getEmailId()
+        {
+            return emailId;
         }
 
-        public void deleteContact(String name)
-        {
-
-        }
 
         public string toString()
         {
-            
+            return fname+lname;   
         }
 
     }
