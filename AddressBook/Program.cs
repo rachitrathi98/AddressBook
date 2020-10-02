@@ -11,34 +11,33 @@ namespace AddressBook
         {
             Program p = new Program();
             int ch = 0; string bname, bname_o;
-            Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();
+            Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();// To store new address book with name as Key and value as list
             while (ch != 3)
             { 
                 Console.WriteLine("1. Add a new Address Book");
-                Console.WriteLine("2. Add or edit contact to an exisiting address Book");
+                Console.WriteLine("2. Add, edit or delete contacts in an exisiting address Book");
                 ch = Convert.ToInt32(Console.ReadLine());
                 if (ch == 1)
                 {
-                    List<Contact> clist = new List<Contact>();
                     Console.WriteLine("Enter the name of the new address book");
                     bname = Console.ReadLine();
-                    dict.Add(bname, clist);
+                    List<Contact> clist = new List<Contact>();//Create new List for each new Address Book
+                    dict.Add(bname, clist);//Add book name as Key and List as value
 
                 }
                 if (ch == 2)
                 {
-                    Console.WriteLine("Select Book to add contact");
-                    foreach (string Key in dict.Keys)
+                    Console.WriteLine("Select Book to add, edit or delete contacts");
+                    foreach (string Key in dict.Keys)//Display the names of the book
                     {
                         Console.WriteLine(Key);
                     }
-                    bname_o = Console.ReadLine();
+                    bname_o = Console.ReadLine();//Enter the name of the book in which you want to add contatct
                     if (dict.ContainsKey(bname_o))
                     {
-                        p.addContact(dict[bname_o]);
+                        p.addContact(dict[bname_o]);//function call to perform modification in the books
         
                     }
-
 
                 }
 
@@ -59,7 +58,6 @@ namespace AddressBook
             
                 switch (choice_one)
                 {
-
                     case 1:
                     string fname, lname, address, city, state, email;
                     long phoneNumber, zip;
@@ -81,7 +79,7 @@ namespace AddressBook
                     Console.WriteLine("Enter the EmailId");
                     email = Console.ReadLine();
                     Contact contact = new Contact(fname, lname, address, city, state, zip, phoneNumber, email);
-                     clist.Add(contact);
+                     clist.Add(contact);//Add new contact obj to the list passed in the method
                         break;
 
                     case 2: 
@@ -89,7 +87,7 @@ namespace AddressBook
 
                             Console.WriteLine(o.toString());
                                }
-                            break;
+                            break;//Print the contacts
              
                     case 3: Console.WriteLine("Enter the name of the contact to edit");
                             string name = Console.ReadLine();
@@ -114,7 +112,7 @@ namespace AddressBook
                                 {
                                     Console.WriteLine("Enter the new First name");
                                     f_name = Console.ReadLine();
-                                    obj.setFname(f_name);
+                                    obj.setFname(f_name);//Set new value to the attributes of the object
                                     
 
                                 }
@@ -168,7 +166,6 @@ namespace AddressBook
 
                                 }
 
-
                             }
                         }
                         break;
@@ -182,21 +179,17 @@ namespace AddressBook
                                 if (obj.getFname().Equals(delname))
                                 {
                                     flag = true;
-                                    Li.Add(obj);
+                                    Li.Add(obj);//Add the contact you want to delete in a list
 
                                 }
-                            }
-                            
-                            clist.RemoveAll(i => Li.Contains(i));
-                        Console.WriteLine("deleted");
+                            }   
+                            clist.RemoveAll(i => Li.Contains(i));//Remove the objects from the list created above from the original list
+                            Console.WriteLine("deleted");
                             if (flag)
                             {
                                 Console.WriteLine("Contacts deleted");
                             }
                             break;
-
-
-
 
                     case 5: Console.WriteLine("Exiting....");
                         break;
