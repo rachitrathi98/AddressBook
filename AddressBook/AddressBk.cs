@@ -7,7 +7,7 @@ namespace AddressBook
 {
     class AddressBk
     {
-        int flag, choice = 0;
+        int choice = 0;
         private List<Contact> li = new List<Contact>();
         public void add(Contact obj)
         {
@@ -21,6 +21,7 @@ namespace AddressBook
 
         public void editContact(string name)
         {
+            int flag = 0;
             foreach (Contact obj in li)
             {
                 if (obj.getFname().Equals(name) && flag == 0)
@@ -98,16 +99,23 @@ namespace AddressBook
             }
 
         }
-        public void delContact(string name)
+        public void delContact(string delName)
         {
-
+            bool flag = false;
             foreach (Contact obj in li)
             {
-                if (obj.getFname().Equals(name))
+                if (obj.getFname().Equals(delName))
                 {
+                    flag = true;
                     li.Remove(obj);
+                   
                 }
             }
+            if (flag)
+            {
+                Console.WriteLine("Contacts deleted");
+            }
+            
 
         }
     }

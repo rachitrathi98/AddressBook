@@ -56,19 +56,12 @@ namespace AddressBook
                     case 3: Console.WriteLine("Enter the name of the contact to edit");
                             string name = Console.ReadLine();
                             addressBk.editContact(name);
-                        List<Contact> li = addressBk.getContact();
-                            foreach(Contact i in li)
-                        {
-                            Console.WriteLine(i.toString());
-                            Console.WriteLine("\n");
-                        }
                             break;
 
                     case 4: Console.WriteLine("Enter the name of the contact to be deleted");
                             string delname = Console.ReadLine();
-                             addressBk.delContact(delname);
-                             List<Contact> list = addressBk.getContact();
-                            break;
+                        addressBk.delContact(delname);     
+                                break;
 
 
 
