@@ -9,7 +9,7 @@ namespace AddressBook
         {
             int choice = 0;
             AddressBk addressBk = new AddressBk();
-            while (choice != 3)
+            while (choice != 5)
             {
                 Console.WriteLine("Enter your choice");
                 Console.WriteLine("1. Enter the contact");
