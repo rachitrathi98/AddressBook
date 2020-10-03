@@ -17,15 +17,15 @@ namespace AddressBook
                 Console.WriteLine("1. Add a new Address Book");
                 Console.WriteLine("2. Add, edit or delete contacts in an exisiting address Book");
                 ch = Convert.ToInt32(Console.ReadLine());
-                if (ch == 1)
+                if (ch == 1)//To create new Book
                 {
                     Console.WriteLine("Enter the name of the new address book");
-                    bname = Console.ReadLine();
+                    bname = Console.ReadLine();//Add the name of the new book to be created
                     List<Contact> clist = new List<Contact>();//Create new List for each new Address Book
                     dict.Add(bname, clist);//Add book name as Key and List as value
 
                 }
-                if (ch == 2)
+                if (ch == 2)//To add to existing book
                 {
                     Console.WriteLine("Select Book to add, edit or delete contacts");
                     foreach (string Key in dict.Keys)//Display the names of the book
@@ -43,10 +43,10 @@ namespace AddressBook
 
             }
         }
-        public void addContact(List<Contact> clist) 
+        public void addContact(List<Contact> clist) //To add to exisiting book
         {
             int choice_one = 0;
-            while (choice_one != 5)
+            while (choice_one != 5)//Iterate till the user exits by inputting choice 5
             {
                 Console.WriteLine("Enter your choice");
                 Console.WriteLine("1. Enter the contact");
@@ -58,7 +58,7 @@ namespace AddressBook
             
                 switch (choice_one)
                 {
-                    case 1:
+                    case 1://TO add new contact
                     string fname, lname, address, city, state, email;
                     long phoneNumber, zip;
                     Console.WriteLine("Enter the contact details");
@@ -82,19 +82,19 @@ namespace AddressBook
                      clist.Add(contact);//Add new contact obj to the list passed in the method
                         break;
 
-                    case 2: 
+                    case 2: //To display all contacts
                             foreach (Contact o in clist) {
 
                             Console.WriteLine(o.toString());
                                }
                             break;//Print the contacts
              
-                    case 3: Console.WriteLine("Enter the name of the contact to edit");
+                    case 3: Console.WriteLine("Enter the name of the contact to edit");//To edit the contact in the list
                             string name = Console.ReadLine();
                             string f_name, l_name, adrs, cty, st, emailId;
                             long phNo, zp;
-                        foreach (Contact obj in clist)
-                            {
+                            foreach (Contact obj in clist)
+                             {
                             if (obj.getFname().Equals(name))
                             {
                                 int choice = 0;
@@ -170,7 +170,7 @@ namespace AddressBook
                         }
                         break;
 
-                    case 4: Console.WriteLine("Enter the name of the contact to be deleted");
+                    case 4: Console.WriteLine("Enter the name of the contact to be deleted");//To delete a contact in the list
                             string delname = Console.ReadLine();
                             bool flag = false;
                             List<Contact> Li = new List<Contact>();
