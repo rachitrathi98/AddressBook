@@ -84,7 +84,6 @@ namespace AddressBook
 
                     case 2: //To display all contacts
                             foreach (Contact o in clist) {
-
                             Console.WriteLine(o.toString());
                                }
                             break;//Print the contacts
