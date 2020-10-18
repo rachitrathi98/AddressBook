@@ -6,14 +6,14 @@ namespace AddressBook
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
             Program p = new Program();
             int ch = 0; string bname, bname_o;
             Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();// To store new address book with name as Key and value as list
             while (ch != 3)
-            { 
+            {
                 Console.WriteLine("1. Add a new Address Book");
                 Console.WriteLine("2. Add, edit or delete contacts in an exisiting address Book");
                 ch = Convert.ToInt32(Console.ReadLine());
@@ -36,7 +36,7 @@ namespace AddressBook
                     if (dict.ContainsKey(bname_o))
                     {
                         p.addContact(dict[bname_o]);//function call to perform modification in the books
-        
+
                     }
 
                 }
@@ -55,45 +55,47 @@ namespace AddressBook
                 Console.WriteLine("4. Delete a contact");
                 Console.WriteLine("5. Exit");
                 choice_one = Convert.ToInt32(Console.ReadLine());
-            
+
                 switch (choice_one)
                 {
                     case 1://TO add new contact
-                    string fname, lname, address, city, state, email;
-                    long phoneNumber, zip;
-                    Console.WriteLine("Enter the contact details");
-                    Console.WriteLine("Enter the first name");
-                    fname = Console.ReadLine();
-                    Console.WriteLine("Enter the last name");
-                    lname = Console.ReadLine();
-                    Console.WriteLine("Enter the address");
-                    address = Console.ReadLine();
-                    Console.WriteLine("Enter the city");
-                    city = Console.ReadLine();
-                    Console.WriteLine("Enter the state");
-                    state = Console.ReadLine();
-                    Console.WriteLine("Enter the zip code");
-                    zip = Convert.ToInt64(Console.ReadLine());
-                    Console.WriteLine("Enter the phone number");
-                    phoneNumber = Convert.ToInt64(Console.ReadLine());
-                    Console.WriteLine("Enter the EmailId");
-                    email = Console.ReadLine();
-                    Contact contact = new Contact(fname, lname, address, city, state, zip, phoneNumber, email);
-                     clist.Add(contact);//Add new contact obj to the list passed in the method
+                        string fname, lname, address, city, state, email;
+                        long phoneNumber, zip;
+                        Console.WriteLine("Enter the contact details");
+                        Console.WriteLine("Enter the first name");
+                        fname = Console.ReadLine();
+                        Console.WriteLine("Enter the last name");
+                        lname = Console.ReadLine();
+                        Console.WriteLine("Enter the address");
+                        address = Console.ReadLine();
+                        Console.WriteLine("Enter the city");
+                        city = Console.ReadLine();
+                        Console.WriteLine("Enter the state");
+                        state = Console.ReadLine();
+                        Console.WriteLine("Enter the zip code");
+                        zip = Convert.ToInt64(Console.ReadLine());
+                        Console.WriteLine("Enter the phone number");
+                        phoneNumber = Convert.ToInt64(Console.ReadLine());
+                        Console.WriteLine("Enter the EmailId");
+                        email = Console.ReadLine();
+                        Contact contact = new Contact(fname, lname, address, city, state, zip, phoneNumber, email);
+                        clist.Add(contact);//Add new contact obj to the list passed in the method
                         break;
 
                     case 2: //To display all contacts
-                            foreach (Contact o in clist) {
+                        foreach (Contact o in clist)
+                        {
                             Console.WriteLine(o.toString());
-                               }
-                            break;//Print the contacts
-             
-                    case 3: Console.WriteLine("Enter the name of the contact to edit");//To edit the contact in the list
-                            string name = Console.ReadLine();
-                            string f_name, l_name, adrs, cty, st, emailId;
-                            long phNo, zp;
-                            foreach (Contact obj in clist)
-                             {
+                        }
+                        break;//Print the contacts
+
+                    case 3:
+                        Console.WriteLine("Enter the name of the contact to edit");//To edit the contact in the list
+                        string name = Console.ReadLine();
+                        string f_name, l_name, adrs, cty, st, emailId;
+                        long phNo, zp;
+                        foreach (Contact obj in clist)
+                        {
                             if (obj.getFname().Equals(name))
                             {
                                 int choice = 0;
@@ -112,27 +114,27 @@ namespace AddressBook
                                     Console.WriteLine("Enter the new First name");
                                     f_name = Console.ReadLine();
                                     obj.setFname(f_name);//Set new value to the attributes of the object
-                                    
+
 
                                 }
                                 if (choice == 2)
                                 {
                                     Console.WriteLine("Enter the new Last name");
-                                     l_name = Console.ReadLine();
+                                    l_name = Console.ReadLine();
                                     obj.setLname(l_name);
 
                                 }
                                 if (choice == 3)
                                 {
                                     Console.WriteLine("Enter the address");
-                                     adrs = Console.ReadLine();
+                                    adrs = Console.ReadLine();
                                     obj.setAdd(adrs);
 
                                 }
                                 if (choice == 4)
                                 {
                                     Console.WriteLine("Enter the new City");
-                                     cty = Console.ReadLine();
+                                    cty = Console.ReadLine();
                                     obj.setCity(cty);
 
                                 }
@@ -146,21 +148,21 @@ namespace AddressBook
                                 if (choice == 6)
                                 {
                                     Console.WriteLine("Enter the new Zip code");
-                                     zp = Convert.ToInt64(Console.ReadLine());
+                                    zp = Convert.ToInt64(Console.ReadLine());
                                     obj.setZip(zp);
 
                                 }
                                 if (choice == 7)
                                 {
                                     Console.WriteLine("Enter the new Phone Number");
-                                     phNo = Convert.ToInt64(Console.ReadLine());
+                                    phNo = Convert.ToInt64(Console.ReadLine());
                                     obj.setPhoneNo(phNo);
 
                                 }
                                 if (choice == 8)
                                 {
                                     Console.WriteLine("Enter the new EmailId");
-                                     emailId = Console.ReadLine();
+                                    emailId = Console.ReadLine();
                                     obj.setEmailId(emailId);
 
                                 }
@@ -169,36 +171,39 @@ namespace AddressBook
                         }
                         break;
 
-                    case 4: Console.WriteLine("Enter the name of the contact to be deleted");//To delete a contact in the list
-                            string delname = Console.ReadLine();
-                            bool flag = false;
-                            List<Contact> Li = new List<Contact>();
-                            foreach (Contact obj in clist)
+                    case 4:
+                        Console.WriteLine("Enter the name of the contact to be deleted");//To delete a contact in the list
+                        string delname = Console.ReadLine();
+                        bool flag = false;
+                        List<Contact> Li = new List<Contact>();
+                        foreach (Contact obj in clist)
+                        {
+                            if (obj.getFname().Equals(delname))
                             {
-                                if (obj.getFname().Equals(delname))
-                                {
-                                    flag = true;
-                                    Li.Add(obj);//Add the contact you want to delete in a list
+                                flag = true;
+                                Li.Add(obj);//Add the contact you want to delete in a list
 
-                                }
-                            }   
-                            clist.RemoveAll(i => Li.Contains(i));//Remove the objects from the list created above from the original list
-                            Console.WriteLine("deleted");
-                            if (flag)
-                            {
-                                Console.WriteLine("Contacts deleted");
                             }
-                            break;
-
-                    case 5: Console.WriteLine("Exiting....");
+                        }
+                        clist.RemoveAll(i => Li.Contains(i));//Remove the objects from the list created above from the original list
+                        Console.WriteLine("deleted");
+                        if (flag)
+                        {
+                            Console.WriteLine("Contacts deleted");
+                        }
                         break;
 
-                    default: Console.WriteLine("Please enter a valid choice");
+                    case 5:
+                        Console.WriteLine("Exiting....");
                         break;
-                 }
+
+                    default:
+                        Console.WriteLine("Please enter a valid choice");
+                        break;
+                }
             }
-         }
-     }
+        }
+    }
 }
-    
+
 
